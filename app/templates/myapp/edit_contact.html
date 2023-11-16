@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Contact</title>
+    <style>
+    /* Apply a pista green theme */
+body {
+    background-color: #c2d5a0; /* Pista Green background color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #006600; /* Dark green text color */
+    text-align: center;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #006600; /* Dark green label color */
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #006600; /* Dark green button background color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #004000; /* Dark green button hover background color */
+}
+
+a {
+    text-decoration: none;
+    color: #006600; /* Dark green link color */
+}
+
+a:hover {
+    color: #004000; /* Dark green link hover color */
+}
+</style>
+</head>
+<body>
+    <h1>Edit Contact</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ contact.name }}" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ contact.email }}" required><br><br>
+        <label for="regno">Regno:</label>
+        <input type="number" id="regno" name="regno" value="{{ contact.regno}}" required><br><br>
+         <label for="phno">Phno:</label>
+        <input type="number" id="Phno" name="phno" value="{{ contact.phno}}"  required><br><br>
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" value="{{ contact.company}}" required><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="{{ contact.address}}" required><br><br>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="{{ contact.country}}" required><br><br>
+        <input type="submit" value="Save Changes">
+    </form>
+    <a href="{% url 'list_contacts' %}">Back to Contact List</a>
+</body>
+</html>
